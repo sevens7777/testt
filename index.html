@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>myj</title>
+    <script src="echarts.min.js"></script>
+</head>
+
+<body>
+    <div id="left1">    </div>
+        <div id="l1">编号：HD 216956 b
+        <br/>类型：不确定天体
+        <br/>赤经：22时57分39.1秒
+        <br/>赤纬：+29°37′20″
+        <br/>偏心率：0.80±0.10
+        <br/>半长轴：(a)~119 AU
+        <br/>离心率：(e)~0.11
+        <br/>母恒星：北落师门
+        </div>
+
+    <div id="left2">
+        <div id="l2"></div>
+    </div>
+    <div id="center">
+        <iframe width="100%" height="100%" src="center.html"></iframe>
+    </div>
+    <div id="right1">
+        <div id="r1"></div>
+    </div>
+    <div id="right2">
+        <div id="r2"></div>
+    </div>
+    <div id="right3">
+        <div id="r3"></div>
+    </div>
+    <div id="right4">
+        <div id="r4"></div>
+    </div>
+
+</body>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+    #l1{
+        grid-area: 2/2/7/3;
+        color: white;
+        font-size: 1.5vmax;
+        line-height: 50px;
+        margin: 50px 50px;
+        position: absolute;
+        z-index: 2;
+        opacity: 1;
+    }
+
+    body {
+        display: grid;
+        grid-template-columns: 1% 24% 50% 24% 1%;
+        grid-template-rows: 1% 24% 1% 24% 1% 24% 1% 23% 1%;
+    }
+
+    #left1 {
+        grid-area: 2/2/7/3;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(1px);
+        -webkit-backdrop-filter: blur(1px);
+        border-radius: 10px;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.25);
+        opacity: 0.6;
+    }
+
+    #left2 {
+        grid-area: 8/2/9/3;
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border-radius: 10px;
+        z-index: 1;
+    }
+
+    #center {
+        grid-area: 1/1/10/6;
+    }
+
+    #right1 {
+        grid-area: 2/4/3/5;
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border-radius: 10px;
+        z-index: 1;
+    }
+
+    #right2 {
+        grid-area: 4/4/5/5;
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border-radius: 10px;
+        z-index: 1;
+    }
+
+    #right3 {
+        grid-area: 6/4/7/5;
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border-radius: 10px;
+        z-index: 1;
+    }
+
+    #right4 {
+        grid-area: 8/4/9/5;
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border-radius: 10px;
+        z-index: 1;
+    }
+
+
+
+</style>
+<script>
+    var myChart1 = echarts.init(document.getElementById('l2'));
+    var option = {
+        title: {
+            text: '密度曲线',
+            top: 15,
+            left: 50,
+            textStyle: {
+                color: '#eee'
+            }
+        },
+        xAxis: {
+            type: 'category',
+            data: ['地面', '地壳', '莫霍', '上幔', '下幔', '外核', '内核'],
+                axisLabel: {
+                    color: '#ddd'
+                }
+        },
+        yAxis: {
+            type: 'value',
+                axisLabel: {
+                    color: '#ddd'
+                }
+        },
+        grid: {
+            left: '15%',
+            bottom: '20%'
+        },
+
+        series: [{
+            data: [820, 932, 901, 934, 1290, 1330, 1320],
+
+                lineStyle: {
+                    color: '#ff4444',
+                    shadowColor: '#fff', 
+                    shadowBlur: 8
+},
+
+            type: 'line'
+        }]
+    };
+
+    myChart1.setOption(option);
+
+    window.onresize = function () {
+        myChart1.resize();
+    }
+</script>
+
+<script type="text/javascript">
+    var dom = document.getElementById("r1");
+    var myChart2 = echarts.init(dom);
+    var app = {};
+    option = null;
+    var dataAxis = ['点', '击', '柱', '子', '或', '者', '两', '指', '在', '触', '屏', '上', '滑', '动', '能', '够', '自', '动', '缩', '放'];
+    var data = [220, 182, 191, 234, 290, 330, 310, 123, 442, 321, 90, 149, 210, 122, 133, 334, 198, 123, 125, 220];
+    var yMax = 500;
+    var dataShadow = [];
+
+    for (var i = 0; i < data.length; i++) {
+        dataShadow.push(yMax);
+    }
+
+    option = {
+        title: {
+            text: '水平分布情况',
+            subtext: '数据来自地面',
+                textStyle: {
+                    color: '#eee'
+                }
+        },
+        xAxis: {
+            data: dataAxis,
+            axisLabel: {
+                inside: true,
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            axisTick: {
+                show: false
+            },
+            axisLine: {
+                show: false
+            },
+            z: 10
+        },
+        yAxis: {
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                textStyle: {
+                    color: '#999'
+                }
+            }
+        },
+        dataZoom: [{
+            type: 'inside'
+        }],
+        series: [{ // For shadow
+                type: 'bar',
+                itemStyle: {
+                    color: 'rgba(0,0,0,0.05)'
+                },
+                barGap: '-100%',
+                barCategoryGap: '40%',
+                data: dataShadow,
+                animation: true
+            },
+            {
+                type: 'bar',
+                itemStyle: {
+                    color: new echarts.graphic.LinearGradient(
+                        0, 0, 0, 1,
+                        [{
+                                offset: 0,
+                                color: '#83bff6'
+                            },
+                            {
+                                offset: 0.5,
+                                color: '#188df0'
+                            },
+                            {
+                                offset: 1,
+                                color: '#188df0'
+                            }
+                        ]
+                    )
+                },
+                emphasis: {
+                    itemStyle: {
+                        color: new echarts.graphic.LinearGradient(
+                            0, 0, 0, 1,
+                            [{
+                                    offset: 0,
+                                    color: '#2378f7'
+                                },
+                                {
+                                    offset: 0.7,
+                                    color: '#2378f7'
+                                },
+                                {
+                                    offset: 1,
+                                    color: '#83bff6'
+                                }
+                            ]
+                        )
+                    }
+                },
+                data: data
+            }
+        ]
+    };
+
+    // Enable data zoom when user click bar.
+    var zoomSize = 6;
+    myChart2.on('click', function (params) {
+        console.log(dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]);
+        myChart2.dispatchAction({
+            type: 'dataZoom',
+            startValue: dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)],
+            endValue: dataAxis[Math.min(params.dataIndex + zoomSize / 2, data.length - 1)]
+        });
+    });;
+    if (option && typeof option === "object") {
+        myChart2.setOption(option, true);
+    }
+</script>
+<script type="text/javascript">
+    var dom = document.getElementById("r2");
+    var myChart3 = echarts.init(dom);
+    var app = {};
+    option = null;
+    option = {
+        color: ['#4398f7','#cc5555'],
+        title: {
+            text: '矿物情况',
+            subtext: '数据源于地幔以上',
+                textStyle: {
+                    color: '#eee'
+                }
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {
+            data: ['--2020年','--2222年'],
+                textStyle: {
+                    color: '#ddd'
+                }
+        },
+        grid: {
+            left: '-10%',
+            right: '10%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+            boundaryGap: [0, 0.01],
+                axisLabel: {
+                    color: '#ddd'
+                }
+        },
+        yAxis: {
+            type: 'category',
+            data: ['Au', 'Ag', 'Cu', 'Li', 'Fe', '总计矿点数量(万)'],
+                axisLabel: {
+                    color: '#ddd'
+                }
+        },
+        series: [{
+                name: '--2020年',
+                type: 'bar',
+                data: [182, 234, 290, 1049, 1317, 6302]
+            },
+            {
+                name: '--2222年',
+                type: 'bar',
+                data: [193, 234, 310, 1215, 1341, 6818]
+            }
+        ]
+    };;
+    if (option && typeof option === "object") {
+        myChart3.setOption(option, true);
+    }
+</script>
+<script type="text/javascript">
+    var dom = document.getElementById("r3");
+    var myChart4 = echarts.init(dom);
+    var app = {};
+    option = null;
+    option = {
+
+
+        title: {
+            text: '地壳情况',
+            left: 'center',
+            top: 15,
+            textStyle: {
+                color: '#eee'
+            }
+        },
+
+        tooltip: {
+            trigger: 'item',
+            formatter: '{a} <br/>{b} : {c} ({d}%)'
+        },
+
+        visualMap: {
+            show: true,
+            min: 180,
+            max: 450,
+            left: 20,
+            bottom: 10 ,
+            inRange: {
+                color: ['black','red', 'white']
+            }
+        },
+        series: [{
+            name: '化学组成',
+            type: 'pie',
+            radius: '55%',
+            center: ['50%', '60%'],
+            data: [{
+                    value: 335,
+                    name: '氧元素'
+                },
+                {
+                    value: 310,
+                    name: '硅元素'
+                },
+                {
+                    value: 274,
+                    name: '铝元素'
+                },
+                {
+                    value: 235,
+                    name: '铁元素'
+                },
+                {
+                    value: 400,
+                    name: '钙元素'
+                }
+            ].sort(function (a, b) {
+                return a.value - b.value;
+            }),
+            roseType: 'radius',
+            label: {
+                color: 'rgba(255, 255, 255, 0.3)'
+            },
+            labelLine: {
+                lineStyle: {
+                    color: 'rgba(255, 255, 255, 0.3)'
+                },
+                smooth: 0.2,
+                length: 10,
+                length2: 20
+            },
+            itemStyle: {
+                color: '#c23531',
+                shadowBlur: 200,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+            },
+
+            animationType: 'scale',
+            animationEasing: 'elasticOut',
+            animationDelay: function (idx) {
+                return Math.random() * 200;
+            }
+        }]
+    };;
+    if (option && typeof option === "object") {
+        myChart4.setOption(option, true);
+    }
+</script>
+<script type="text/javascript">
+    var dom = document.getElementById("r4");
+    var myChart5 = echarts.init(dom);
+    var app = {};
+    option = null;
+    option = {
+
+        series: [{
+            name: '衰变',
+            type: 'gauge',
+            min: 0,
+            max: 220,
+            splitNumber: 11,
+            radius: '95%',
+            axisLine: { // 坐标轴线
+                lineStyle: { // 属性lineStyle控制线条样式
+                    color: [
+                        [0.09, 'lime'],
+                        [0.82, '#1e90ff'],
+                        [1, '#ff4500']
+                    ],
+                    width: 1,
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            axisLabel: { // 坐标轴小标记
+                fontWeight: 'bolder',
+                fontSize: 12,
+                color: '#fff',
+                shadowColor: '#fff', //默认透明
+                shadowBlur: 10
+            },
+            axisTick: { // 坐标轴小标记
+                length: 12, // 属性length控制线长
+                lineStyle: { // 属性lineStyle控制线条样式
+                    color: 'auto',
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            splitLine: { // 分隔线
+                length: 20, // 属性length控制线长
+                lineStyle: { // 属性lineStyle（详见lineStyle）控制线条样式
+                    width: 3,
+                    color: '#fff',
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            pointer: { // 分隔线
+                shadowColor: '#fff', //默认透明
+                shadowBlur: 5
+            },
+            title: {
+                textStyle: { // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                    fontWeight: 'bolder',
+                    fontSize: 10,
+                    fontStyle: 'italic',
+                    color: '#fff',
+                    shadowColor: '#fff', //默认透明
+                    shadowBlur: 10
+                }
+            },
+            detail: {
+                offsetCenter: [0, 70], // x, y，单位px
+                textStyle: { // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                    fontWeight: 'bolder',
+                    color: '#fff'
+                }
+            },
+            data: [{
+                value: 40,
+                name: 'μg/s'
+            }]
+        }]
+    };
+
+    setInterval(function () {
+        option.series[0].data[0].value = (Math.random() * 100).toFixed(2) - 0;
+        myChart5.setOption(option);
+    }, 2000);;
+    if (option && typeof option === "object") {
+        myChart5.setOption(option, true);
+    }
+</script>
+
+</html>
