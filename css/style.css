@@ -17,7 +17,7 @@ html * {
     color: #505260;
     background-image: url('../img/IMG_6098.PNG');
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size:100% 100vh;
   }
 
 
