@@ -15,8 +15,9 @@ html * {
     font-size: 100%;
     font-family: "STXinwei", sans-serif;
     color: #505260;
-      background-image: url('../img/IMG_6098.PNG');
-  background-size:cover;
+    background-image: url('../img/IMG_6098.PNG');
+    background-repeat: no-repeat;
+    background-size:cover;
   }
 
 
